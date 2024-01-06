@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       * body{
+
+            background-image:linear-gradient(to right,rgb(215, 137, 137),rgb(93, 93, 233),violet);
+        }
+    </style>
+</head>
+<body>
+    
+<button>back</button>
+
+<script>
+
+
+  let data=JSON.parse(localStorage.getItem("see more"));
+  console.log(data);
+let id=document.createElement("h5");
+   id.innerText=(data["id"]);
+   document.body.appendChild(id);
+
+let title=document.createElement("p");
+   title.innerText=(data["title"]);
+   title.style.fontSize="x-large"
+   document.body.appendChild(title)
+
+   let description=document.createElement("p");
+   description .innerText=(data["description"]);
+   document.body.appendChild(description);
+
+     
+   let image=document.createElement("img");
+   image.setAttribute("src",data["image"]);
+   image.style.width="200px";
+   
+   document.body.appendChild(image)
+
+
+  
+
+   
+
+
+    let btn=document.getElementsByTagName("button");
+    btn[0].addEventListener("click",function(){
+        window.history.back()
+    //      let d=confirm("are u willing to back page");
+
+    //    if(d){
+    //     window.history.back()
+    //    }
+    //    else{
+
+    //    }
+        }
+    )
+
+</script>
+</body>
+</html>

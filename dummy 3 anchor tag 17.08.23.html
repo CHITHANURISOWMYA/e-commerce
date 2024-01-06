@@ -1,0 +1,93 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      div{
+         border: 5px solid black;
+         /* width: 400px; */
+         background-color: rgb(32, 20, 32);
+         padding: 10px;
+        
+      }
+
+      .style{
+           width: 250px;
+              display:inline-block ;
+           margin: 10px;
+             background-color: rgb(195, 227, 114);
+      }
+    </style>
+
+</head>
+<body> 
+ NO OF ITEAMS SELECTED
+   <button id="buuton"> </button>
+   <div class="produts">      </div>
+
+<script>
+    let div=document.getElementsByTagName("div");
+
+    let item=document.getElementById("button")
+   //  item.innerText=  + cart1.length ;
+
+
+   //  let diver=document.createElement("div")
+
+    let cart1=localStorage.getItem("cart");
+    console.log(cart1);
+
+
+
+    cart1==null? cart1=[]: cart1=JSON.parse(cart1);
+
+ cart1.map((val,ind)=>{
+
+   let diver=document.createElement("div")
+   diver.className="style";
+
+
+    let id=document.createElement("h3");
+   id.innerText=(val["id"]);
+   // div[0].appendChild(id);
+   diver.appendChild(id);
+
+let title=document.createElement("p");
+   title.innerText=(val["title"]);
+   // div[0].appendChild(title);
+   diver.appendChild(title);
+
+     
+   let image=document.createElement("img");
+   image.setAttribute("src",val["image"]);
+   image.style.width="200px";
+   // div[0].appendChild(image);
+   diver.appendChild(image);
+
+
+   let buy=document.createElement("button");
+   buy.innerText="BUY NOW";
+   // div[0].appendChild(buy);
+   diver.appendChild(buy);
+
+   buy.style.backgroundColor="black";
+   buy.style.color="white";
+
+   buy.addEventListener("click",function(){
+
+    window.location.assign("buy.html");
+   })
+   
+   div[0].appendChild(diver)
+
+ });
+
+
+</script>
+
+</body>
+</html>
